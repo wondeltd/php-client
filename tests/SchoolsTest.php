@@ -40,6 +40,11 @@ class SchoolsTest extends PHPUnit_Framework_TestCase
                 echo $class->name . PHP_EOL;
             }
 
+            // Get counts
+            $counts = $school->contacts->all(['students','contacts']);
+            echo $counts->array->students->data->count . PHP_EOL;
+            echo $counts->array->contacts->data->count . PHP_EOL;
+
             // Get groups
             foreach ($school->groups->all() as $group) {
                 echo $group->name . PHP_EOL;
@@ -85,10 +90,9 @@ class SchoolsTest extends PHPUnit_Framework_TestCase
                 echo $subject->name . PHP_EOL;
             }
 
-
             // Example - Get all students for a school
-            foreach ($client->school($school->id)->students->all() as $students) {
-                echo $students->forename . ' ' . $students->surname . PHP_EOL;
+            foreach ($client->school($school->id)->students->all() as $student) {
+                echo $student->forename . ' ' . $student->surname . PHP_EOL;
             }
 
             // Example - Get all employees for a school
@@ -106,9 +110,9 @@ class SchoolsTest extends PHPUnit_Framework_TestCase
                 $school->students->all([
                     'contact_details',
                     'extended_details'
-                ], ['updated_after' => '2016-06-24 00:00:00']) as $students
+                ], ['updated_after' => '2016-06-24 00:00:00']) as $student
             ) {
-                echo $students->forename . ' ' . $students->surname . PHP_EOL;
+                echo $student->forename . ' ' . $student->surname . PHP_EOL;
             }
         }
     }

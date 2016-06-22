@@ -7,7 +7,7 @@ class ResultIterator extends BootstrapEndpoint implements \Iterator
     /**
      * @var array
      */
-    private $array;
+    public $array;
 
     /**
      * @var string
