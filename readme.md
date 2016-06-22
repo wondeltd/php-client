@@ -1,3 +1,6 @@
+# Wonde PHP Client
+Documentation https://wonde.com/docs/api/1.0/
+
 ## Installation
 
 Requires PHP 5.6.
