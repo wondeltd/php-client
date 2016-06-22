@@ -23,7 +23,7 @@ class ResultIterator extends BootstrapEndpoint implements \Iterator
     {
         $this->array = $givenArray->data;
         $this->token = $token;
-        $this->meta = ! empty($givenArray->meta) ? $givenArray->meta : new \stdClass();
+        $this->meta  = ! empty($givenArray->meta) ? $givenArray->meta : new \stdClass();
     }
 
     function rewind()
@@ -57,7 +57,7 @@ class ResultIterator extends BootstrapEndpoint implements \Iterator
                 $nextResponse = $this->getUrl($this->meta->pagination->next)->getBody()->getContents();
                 $decoded      = json_decode($nextResponse);
 
-                $this->meta = ! empty($decoded->meta) ? $decoded->meta : new \stdClass();
+                $this->meta  = ! empty($decoded->meta) ? $decoded->meta : new \stdClass();
                 $this->array = $decoded->data;
 
                 reset($this->array);
