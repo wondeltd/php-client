@@ -7,9 +7,14 @@ Using Composer:
 ```json
 {
     "require": {
-      "wondeltd/php-client": "1.0.*"
+      "wondeltd/php-client": "1.*"
     }
 }
+```
+
+or 
+```bash
+composer require wondeltd/php-client
 ```
 
 
