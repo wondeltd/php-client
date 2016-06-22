@@ -4,7 +4,7 @@ class SchoolsTest extends PHPUnit_Framework_TestCase
 {
     public function test_get_all_schools()
     {
-        $client = new \Wonde\Client('66e7882ac0477e369cf8e660883800c1e4e90ac3');
+        $client = new \Wonde\Client('TOKEN_HERE');
 
         // Loop through the schools you have access to
         foreach ($client->schools->all() as $resultSchool) {
@@ -13,7 +13,7 @@ class SchoolsTest extends PHPUnit_Framework_TestCase
             echo $resultSchool->name . PHP_EOL;
 
             // Setup school
-            $school = $client->school('A1329183376');
+            $school = $client->school($resultSchool->id);
 
             // Get attendance
             foreach ($school->attendance->all() as $attendance) {

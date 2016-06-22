@@ -41,9 +41,11 @@ class BootstrapEndpoint
     private function client()
     {
         return new Client([
-            'headers' => [
-                'Authorization' => 'Basic ' . base64_encode($this->token . ':'),
-                'User-Agent'    => 'wonde-php-client-' . \Wonde\Client::version
+            'defaults' => [
+                'headers' => [
+                    'Authorization' => 'Basic ' . base64_encode($this->token . ':'),
+                    'User-Agent'    => 'wonde-php-client-' . \Wonde\Client::version
+                ]
             ]
         ]);
     }
@@ -67,7 +69,7 @@ class BootstrapEndpoint
      */
     public function getUrl($url)
     {
-        return $this->client()->request('GET', $url);
+        return $this->client()->get($url);
     }
 
     /**
