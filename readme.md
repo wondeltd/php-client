@@ -155,12 +155,10 @@ $client = new \Wonde\Client('TOKEN_GOES_HERE');
 
 $school = $client->school('SCHOOL_ID_GOES_HERE');
 
-// Get contacts
-$counts = $school->contacts->all(['students','contacts']);
+// Get counts
+$counts = $school->counts->all(['students','contacts']);
 echo $counts->array->students->data->count . PHP_EOL;
 echo $counts->array->contacts->data->count . PHP_EOL;
-
-
 ```
 
 ### Employees
