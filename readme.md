@@ -1,3 +1,6 @@
+# Wonde PHP Client
+Documentation https://wonde.com/docs/api/1.0/
+
 ## Installation
 
 Requires PHP 5.6.
@@ -45,7 +48,7 @@ $school = $client->school('SCHOOL_ID_GOES_HERE');
 
 // Get students
 foreach ($school->students->all() as $student) {
-    echo $students->forename . ' ' . $students->surname . PHP_EOL;
+    echo $student->forename . ' ' . $student->surname . PHP_EOL;
 }
 
 // Get single student
@@ -53,17 +56,17 @@ $student = $school->students->get('STUDENT_ID_GOES_HERE');
 
 // Get students and include contact_details object
 foreach ($school->students->all(['contact_details']) as $student) {
-    echo $students->forename . ' ' . $students->surname . PHP_EOL;
+    echo $student->forename . ' ' . $student->surname . PHP_EOL;
 }
 
 // Get students and include contacts array
 foreach ($school->students->all(['contacts']) as $student) {
-    echo $students->forename . ' ' . $students->surname . PHP_EOL;
+    echo $student->forename . ' ' . $student->surname . PHP_EOL;
 }
 
 // Get students, include contact_details object, include extended_details object and filter by updated after date
 foreach ($school->students->all(['contact_details', 'extended_details'], ['updated_after' => '2016-06-24 00:00:00']) as $student) {
-    echo $students->forename . ' ' . $students->surname . PHP_EOL;
+    echo $student->forename . ' ' . $student->surname . PHP_EOL;
 }
 ```
 
@@ -143,6 +146,19 @@ $school = $client->school('SCHOOL_ID_GOES_HERE');
 foreach ($school->contacts->all() as $contacts) {
     echo $contacts->forename . ' ' . $contacts->surname . PHP_EOL;
 }
+```
+
+### Counts
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get counts
+$counts = $school->counts->all(['students','contacts']);
+echo $counts->array->students->data->count . PHP_EOL;
+echo $counts->array->contacts->data->count . PHP_EOL;
 ```
 
 ### Employees
