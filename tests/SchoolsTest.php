@@ -40,8 +40,13 @@ class SchoolsTest extends PHPUnit_Framework_TestCase
                 echo $class->name . PHP_EOL;
             }
 
+            // Get contacts
+            foreach ($school->contacts->all() as $contact) {
+                echo $contact->name . PHP_EOL;
+            }
+
             // Get counts
-            $counts = $school->contacts->all(['students','contacts']);
+            $counts = $school->counts->all(['students','contacts']);
             echo $counts->array->students->data->count . PHP_EOL;
             echo $counts->array->contacts->data->count . PHP_EOL;
 
