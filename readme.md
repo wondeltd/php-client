@@ -101,8 +101,6 @@ foreach ($school->attendance->all() as $attendance) {
 ```php
 $client = new \Wonde\Client('TOKEN_GOES_HERE');
 
-$school = $client->school('SCHOOL_ID_GOES_HERE');
-
 // Get attendance codes
 foreach ($client->attendanceCodes->all() as $attendanceCode) {
     echo $attendanceCode->code . PHP_EOL;
