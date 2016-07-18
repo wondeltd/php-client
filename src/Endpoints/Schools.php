@@ -93,6 +93,16 @@ class Schools extends BootstrapEndpoint
     public $students;
 
     /**
+     * @var Assessment
+     */
+    public $assessment;
+
+    /**
+     * @var Deletions
+     */
+    public $deletions;
+
+    /**
      * Schools constructor.
      * @param string $uri
      */
@@ -105,11 +115,13 @@ class Schools extends BootstrapEndpoint
         }
 
         $this->achievements      = new Achievements($token, $this->uri);
+        $this->assessment        = new Assessment($token, $this->uri);
         $this->attendance        = new Attendance($token, $this->uri);
         $this->behaviours        = new Behaviours($token, $this->uri);
         $this->classes           = new Classes($token, $this->uri);
         $this->contacts          = new Contacts($token, $this->uri);
         $this->counts            = new Counts($token, $this->uri);
+        $this->deletions         = new Deletions($token, $this->uri);
         $this->employees         = new Employees($token, $this->uri);
         $this->groups            = new Groups($token, $this->uri);
         $this->lessons           = new Lessons($token, $this->uri);

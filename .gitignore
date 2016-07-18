@@ -3,3 +3,5 @@ vendor/
 vendor/*
 composer.lock
 composer.phar
+.token
+.school
