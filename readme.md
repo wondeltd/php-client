@@ -26,6 +26,8 @@ If you wish to get early access to new endpoints / improvements please set your 
 
 **Important Note:** Wonde strongly recommends locking to a stable version on production.
 
+## Endpoints
+
 ### Client
 
 ```php
