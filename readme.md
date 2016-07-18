@@ -217,6 +217,19 @@ foreach ($school->employees->all() as $employee) {
 }
 ```
 
+### Events
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get events
+foreach ($school->events->all() as $event) {
+    echo $event->id . PHP_EOL;
+}
+```
+
 ### Groups
 
 ```php

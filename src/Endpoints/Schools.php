@@ -103,6 +103,11 @@ class Schools extends BootstrapEndpoint
     public $deletions;
 
     /**
+     * @var Events
+     */
+    public $events;
+
+    /**
      * Schools constructor.
      * @param string $uri
      */
@@ -123,6 +128,7 @@ class Schools extends BootstrapEndpoint
         $this->counts            = new Counts($token, $this->uri);
         $this->deletions         = new Deletions($token, $this->uri);
         $this->employees         = new Employees($token, $this->uri);
+        $this->events            = new Events($token, $this->uri);
         $this->groups            = new Groups($token, $this->uri);
         $this->lessons           = new Lessons($token, $this->uri);
         $this->lessonAttendance  = new LessonAttendance($token, $this->uri);
