@@ -89,7 +89,7 @@ foreach ($school->achievements->all() as $achievement) {
     echo $achievement->comment . PHP_EOL;
 }
 ```
-### Assessment
+### Assessment - (DEV ONLY)
 
 ```php
 $client = new \Wonde\Client('TOKEN_GOES_HERE');
@@ -198,7 +198,7 @@ echo $counts->array->students->data->count . PHP_EOL;
 echo $counts->array->contacts->data->count . PHP_EOL;
 ```
 
-### Deletions
+### Deletions - (DEV ONLY)
 
 ```php
 $client = new \Wonde\Client('TOKEN_GOES_HERE');
@@ -224,7 +224,7 @@ foreach ($school->employees->all() as $employee) {
 }
 ```
 
-### Events
+### Events - (DEV ONLY)
 
 ```php
 $client = new \Wonde\Client('TOKEN_GOES_HERE');
