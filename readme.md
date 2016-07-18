@@ -82,6 +82,38 @@ foreach ($school->achievements->all() as $achievement) {
     echo $achievement->comment . PHP_EOL;
 }
 ```
+### Assessment
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get aspects
+foreach ($school->assessment->aspects->all() as $aspect) {
+    echo $aspect->id . PHP_EOL;
+}
+
+// Get templates
+foreach ($school->assessment->templates->all() as $templates) {
+    echo $templates->id . PHP_EOL;
+}
+
+// Get result sets
+foreach ($school->assessment->templates->all() as $resultsets) {
+    echo $resultsets->id . PHP_EOL;
+}
+
+// Get results 
+foreach ($school->assessment->results->all() as $results) {
+    echo $results->id . PHP_EOL;
+}
+
+// Get marksheets
+foreach ($school->assessment->marksheets->all() as $marksheets) {
+    echo $marksheets->id . PHP_EOL;
+}
+```
 
 ### Attendance
 
@@ -157,6 +189,19 @@ $school = $client->school('SCHOOL_ID_GOES_HERE');
 $counts = $school->counts->all(['students','contacts']);
 echo $counts->array->students->data->count . PHP_EOL;
 echo $counts->array->contacts->data->count . PHP_EOL;
+```
+
+### Deletions
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get deletions
+foreach ($school->deletions->all() as $deletions) {
+    echo $deletions->id;
+}
 ```
 
 ### Employees
