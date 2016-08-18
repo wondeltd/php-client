@@ -33,6 +33,49 @@ class BootstrapEndpoint
     }
 
     /**
+     * Get all of resource
+     *
+     * @param array $includes
+     * @param array $parameters
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function all($includes = [], $parameters = [])
+    {
+        if ( ! empty($includes)) {
+            $parameters['include'] = implode(',', $includes);
+        }
+
+        $uri = ! empty($parameters) ? $this->uri . '?' . http_build_query($parameters) : $this->uri;
+
+        $response = $this->getRequest($uri)->getBody()->getContents();
+        $decoded  = json_decode($response);
+
+        return new ResultIterator($decoded, $this->token);
+    }
+
+    /**
+     * Make a get request
+     *
+     * @param $endpoint
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    private function getRequest($endpoint)
+    {
+        return $this->getUrl(self::endpoint . $endpoint);
+    }
+
+    /**
+     * Make a get request to url
+     *
+     * @param $url
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function getUrl($url)
+    {
+        return $this->client()->get($url);
+    }
+
+    /**
      * Get the default guzzle client
      *
      * @return Client
@@ -59,49 +102,6 @@ class BootstrapEndpoint
     }
 
     /**
-     * Make a get request
-     *
-     * @param $endpoint
-     * @return mixed|\Psr\Http\Message\ResponseInterface
-     */
-    private function getRequest($endpoint)
-    {
-        return $this->getUrl(self::endpoint . $endpoint);
-    }
-
-    /**
-     * Make a get request to url
-     *
-     * @param $url
-     * @return mixed|\Psr\Http\Message\ResponseInterface
-     */
-    public function getUrl($url)
-    {
-        return $this->client()->get($url);
-    }
-
-    /**
-     * Get all of resource
-     *
-     * @param array $includes
-     * @param array $parameters
-     * @return mixed|\Psr\Http\Message\ResponseInterface
-     */
-    public function all($includes = [], $parameters = [])
-    {
-        if ( ! empty($includes)) {
-            $parameters['include'] = implode(',', $includes);
-        }
-
-        $uri = ! empty($parameters) ? $this->uri . '?' . http_build_query($parameters) : $this->uri;
-
-        $response = $this->getRequest($uri)->getBody()->getContents();
-        $decoded  = json_decode($response);
-
-        return new ResultIterator($decoded, $this->token);
-    }
-
-    /**
      * Get single resource
      *
      * @param $id
@@ -119,5 +119,32 @@ class BootstrapEndpoint
         $decoded  = json_decode($response);
 
         return $decoded->data;
+    }
+
+    /**
+     * Make a post request
+     *
+     * @param array $body
+     * @return array
+     */
+    public function post($body = [])
+    {
+        return $this->postRequest($this->uri);
+    }
+
+    /**
+     * Make a post request and decode the response
+     *
+     * @param       $endpoint
+     * @param array $body
+     * @return array
+     */
+    private function postRequest($endpoint, $body = [])
+    {
+        $response = $this->client()->post(self::endpoint . $endpoint);
+        /** @var string $content */
+        $content = $response->getBody()->getContents();
+        /** @var array $decoded */
+        return json_decode($content);
     }
 }

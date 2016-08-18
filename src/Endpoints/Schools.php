@@ -1,5 +1,8 @@
 <?php namespace Wonde\Endpoints;
 
+use GuzzleHttp\Psr7\Response;
+use Wonde\Exceptions\InvalidInputException;
+
 class Schools extends BootstrapEndpoint
 {
     /**
@@ -139,5 +142,31 @@ class Schools extends BootstrapEndpoint
         $this->rooms             = new Rooms($token, $this->uri);
         $this->students          = new Students($token, $this->uri);
         $this->subjects          = new Subjects($token, $this->uri);
+    }
+
+    /**
+     * Return all pending schools
+     *
+     * @param array $includes
+     * @param array $parameters
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function pending($includes = [], $parameters = [])
+    {
+        $this->uri = $this->uri . 'pending/';
+        return $this->all($includes, $parameters);
+    }
+
+    /**
+     * Search available schools
+     *
+     * @param array $includes
+     * @param array $parameters
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function search($includes = [], $parameters = [])
+    {
+        $this->uri = $this->uri . 'all/';
+        return $this->all($includes, $parameters);
     }
 }
