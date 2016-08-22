@@ -89,7 +89,8 @@ foreach ($school->achievements->all() as $achievement) {
     echo $achievement->comment . PHP_EOL;
 }
 ```
-### Assessment
+### Assessment - (BETA)
+This endpoint is included in the stable release but is likely to change in the future. Please contact support for more information.
 
 ```php
 $client = new \Wonde\Client('TOKEN_GOES_HERE');
