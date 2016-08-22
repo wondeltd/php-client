@@ -23,7 +23,7 @@ class Client
     /**
      * @var string
      */
-    const version = '1.0.2';
+    const version = '1.1.0';
 
     /**
      * Client constructor.
