@@ -44,6 +44,54 @@ foreach ($client->schools->all() as $school) {
     // Display school name
     echo $school->name . PHP_EOL;
 }
+
+```
+
+### Pending Schools
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+foreach ($client->schools->pending() as $school) {
+    // Display school name
+    echo $school->name . PHP_EOL;
+}
+```
+
+### Search Schools
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+// Search for schools with a postcode starting CB21
+foreach ($client->schools->search(['postcode' => 'CB21']) as $school) {
+    // Display school name
+    echo $school->name . PHP_EOL;
+}
+
+// Search for schools with the establishment number = 6006
+foreach ($client->schools->search(['establishment_number' => '6006']) as $school) {
+    // Display school name
+    echo $school->name . PHP_EOL;
+}
+```
+
+### Request Access
+
+Provide the school ID to request access to a school's data.
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+$client->requestAccess('A0000000000');
+```
+
+### Revoke Access
+
+Provide the school ID to access already approve or pending approval.
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+$client->revokeAccess('A0000000000');
 ```
 
 ### Students

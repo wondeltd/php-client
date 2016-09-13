@@ -23,7 +23,7 @@ class Client
     /**
      * @var string
      */
-    const version = '1.1.0';
+    const version = '1.2.0';
 
     /**
      * Client constructor.
@@ -48,6 +48,36 @@ class Client
     public function school($id)
     {
         return new Schools($this->token, $id);
+    }
+
+    /**
+     * Request access to the current school
+     *
+     * @return array
+     */
+    public function requestAccess($schoolId)
+    {
+        $this->uri = $this->uri . $schoolId . '/request-access';
+
+        /** @var array $response */
+        $response = $this->post();
+
+        return $response;
+    }
+
+    /**
+     * Revoke access to the current school
+     *
+     * @return array
+     */
+    public function revokeAccess($schoolId)
+    {
+        $this->uri = $this->uri . $schoolId . '/revoke-access';
+
+        /** @var array $response */
+        $response = $this->post();
+
+        return $response;
     }
 }
 
