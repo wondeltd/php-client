@@ -56,6 +56,9 @@ foreach ($client->schools->pending() as $school) {
     // Display school name
     echo $school->name . PHP_EOL;
 }
+
+// Get single school
+$school = $client->schools->get('SCHOOL_ID_GOES_HERE');
 ```
 
 ### Search Schools
