@@ -47,6 +47,14 @@ foreach ($client->schools->all() as $school) {
 
 ```
 
+### Single School
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+// Get single school
+$school = $client->schools->get('SCHOOL_ID_GOES_HERE');
+```
+
 ### Pending Schools
 
 ```php
@@ -56,9 +64,6 @@ foreach ($client->schools->pending() as $school) {
     // Display school name
     echo $school->name . PHP_EOL;
 }
-
-// Get single school
-$school = $client->schools->get('SCHOOL_ID_GOES_HERE');
 ```
 
 ### Search Schools
