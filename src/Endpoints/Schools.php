@@ -169,4 +169,18 @@ class Schools extends BootstrapEndpoint
         $this->uri = $this->uri . 'all/';
         return $this->all($includes, $parameters);
     }
+
+    /**
+     * Override the get method for single school fetch
+     *
+     * @param       $id
+     * @param array $includes
+     * @param array $parameters
+     * @return mixed
+     */
+    public function get($id, $includes = [], $parameters = [])
+    {
+        $this->uri = 'schools/';
+        return parent::get($id, $includes, $parameters);
+    }
 }
