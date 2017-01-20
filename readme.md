@@ -47,6 +47,14 @@ foreach ($client->schools->all() as $school) {
 
 ```
 
+### Single School
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+// Get single school
+$school = $client->schools->get('SCHOOL_ID_GOES_HERE');
+```
+
 ### Pending Schools
 
 ```php
@@ -64,13 +72,13 @@ foreach ($client->schools->pending() as $school) {
 $client = new \Wonde\Client('TOKEN_GOES_HERE');
 
 // Search for schools with a postcode starting CB21
-foreach ($client->schools->search(['postcode' => 'CB21']) as $school) {
+foreach ($client->schools->search([], ['postcode' => 'CB21']) as $school) {
     // Display school name
     echo $school->name . PHP_EOL;
 }
 
 // Search for schools with the establishment number = 6006
-foreach ($client->schools->search(['establishment_number' => '6006']) as $school) {
+foreach ($client->schools->search([], ['establishment_number' => '6006']) as $school) {
     // Display school name
     echo $school->name . PHP_EOL;
 }
