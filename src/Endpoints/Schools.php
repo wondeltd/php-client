@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Psr7\Response;
 use Wonde\Exceptions\InvalidInputException;
+use Wonde\LessonAttendance;
 
 class Schools extends BootstrapEndpoint
 {
@@ -171,16 +172,22 @@ class Schools extends BootstrapEndpoint
     }
 
     /**
-     * Override the get method for single school fetch
+     * Init attendance record
      *
-     * @param       $id
-     * @param array $includes
-     * @param array $parameters
-     * @return mixed
+     * @return Attendance
      */
-    public function get($id, $includes = [], $parameters = [])
+    public function attendance()
     {
-        $this->uri = 'schools/';
-        return parent::get($id, $includes, $parameters);
+        return $this->attendance;
+    }
+
+    /**
+     * Init attendance record
+     *
+     * @return LessonAttendance
+     */
+    public function lessonAttendance()
+    {
+        return $this->lessonAttendance;
     }
 }

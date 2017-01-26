@@ -124,27 +124,41 @@ class BootstrapEndpoint
     /**
      * Make a post request
      *
+     * @param       $endpoint
      * @param array $body
-     * @return array
+     * @return mixed|\Psr\Http\Message\ResponseInterface
      */
-    public function post($body = [])
+    public function postRequest($endpoint, $body = [])
     {
-        return $this->postRequest($this->uri);
+        return $this->postUrl(self::endpoint . $endpoint, $body);
+    }
+
+    /**
+     * Make a post request to url
+     *
+     * @param       $url
+     * @param array $body
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    private function postUrl($url, $body = [])
+    {
+        return $this->client()->post($url, $body);
     }
 
     /**
      * Make a post request and decode the response
      *
-     * @param       $endpoint
      * @param array $body
-     * @return array
+     * @return mixed
      */
-    private function postRequest($endpoint, $body = [])
+    public function post($body = [])
     {
-        $response = $this->client()->post(self::endpoint . $endpoint);
-        /** @var string $content */
-        $content = $response->getBody()->getContents();
-        /** @var array $decoded */
-        return json_decode($content);
+        $body = ['json'=>json_encode($body)];
+        $body['headers']['Content-Type'] = 'application/json';
+
+        $response = $this->postRequest($this->uri,$body)->getBody()->getContents();
+        $decoded  = json_decode($response);
+
+        return $decoded->data;
     }
 }
