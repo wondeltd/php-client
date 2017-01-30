@@ -1,9 +1,5 @@
 <?php namespace Wonde\Endpoints;
 
-use GuzzleHttp\Psr7\Response;
-use Wonde\Exceptions\InvalidInputException;
-use Wonde\Writeback\LessonAttendanceRecord;
-
 class Schools extends BootstrapEndpoint
 {
     /**
@@ -57,7 +53,7 @@ class Schools extends BootstrapEndpoint
     public $lessons;
 
     /**
-     * @var LessonAttendanceRecord
+     * @var LessonAttendance
      */
     public $lessonAttendance;
 
