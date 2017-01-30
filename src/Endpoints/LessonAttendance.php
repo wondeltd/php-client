@@ -1,6 +1,6 @@
 <?php namespace Wonde\Endpoints;
 
-use Wonde\LessonRegister;
+use Wonde\Writeback\LessonRegister;
 
 class LessonAttendance extends BootstrapEndpoint
 {
@@ -13,7 +13,7 @@ class LessonAttendance extends BootstrapEndpoint
      * Lesson Register
      *
      * @param LessonRegister $register
-     * @return array
+     * @return \stdClass
      */
     public function lessonRegister(LessonRegister $lessonRegister){
 

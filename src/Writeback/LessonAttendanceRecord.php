@@ -1,23 +1,23 @@
-<?php namespace Wonde;
+<?php namespace Wonde\Writeback;
 
 use Wonde\Exceptions\InvalidLessonAttendanceException;
 
-class LessonAttendance
+class LessonAttendanceRecord
 {
     /**
      * @var string
      */
-    public $student_id;
+    private $student_id;
 
     /**
      * @var string
      */
-    public $lesson_id;
+    private $lesson_id;
 
     /**
      * @var string
      */
-    public $attendance_code_id;
+    private $attendance_code_id;
 
     /**
      * Set student id
@@ -28,7 +28,7 @@ class LessonAttendance
      */
     public function setStudentId($studentId)
     {
-        if(empty($studentId)){
+        if (empty($studentId)) {
             throw new InvalidLessonAttendanceException('Student id can not be set to null.');
         }
 
@@ -44,7 +44,7 @@ class LessonAttendance
      */
     public function setLessonId($lessonId)
     {
-        if(empty($lessonId)){
+        if (empty($lessonId)) {
             throw new InvalidLessonAttendanceException('Lesson id can not be set to null.');
         }
 
@@ -60,11 +60,61 @@ class LessonAttendance
      */
     public function setAttendanceCodeId($attendanceCodeId)
     {
-        if(empty($attendanceCodeId)){
+        if (empty($attendanceCodeId)) {
             throw new InvalidLessonAttendanceException('Attendance code id can not be set to null.');
         }
 
         $this->attendance_code_id = $attendanceCodeId;
+    }
+
+    /**
+     * Check that all required attributes are set
+     *
+     * @return bool
+     */
+    public function isValid()
+    {
+        return ! (empty($this->getStudentId()) || empty($this->getLessonId()) || empty($this->getAttendanceCodeId()));
+    }
+
+    /**
+     * @return string
+     */
+    public function getStudentId()
+    {
+        return $this->student_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLessonId()
+    {
+        return $this->lesson_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttendanceCodeId()
+    {
+        return $this->attendance_code_id;
+    }
+
+    /**
+     * Return object as array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $required = [
+            'lesson_id'          => $this->getLessonId(),
+            'student_id'         => $this->getStudentId(),
+            'attendance_code_id' => $this->getAttendanceCodeId()
+        ];
+
+        return $required;
     }
 
 }

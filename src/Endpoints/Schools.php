@@ -2,7 +2,7 @@
 
 use GuzzleHttp\Psr7\Response;
 use Wonde\Exceptions\InvalidInputException;
-use Wonde\LessonAttendance;
+use Wonde\Writeback\LessonAttendanceRecord;
 
 class Schools extends BootstrapEndpoint
 {
@@ -57,7 +57,7 @@ class Schools extends BootstrapEndpoint
     public $lessons;
 
     /**
-     * @var LessonAttendance
+     * @var LessonAttendanceRecord
      */
     public $lessonAttendance;
 

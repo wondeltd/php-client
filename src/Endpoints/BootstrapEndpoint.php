@@ -1,6 +1,8 @@
 <?php namespace Wonde\Endpoints;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use Wonde\Exceptions\ValidationError;
 use Wonde\ResultIterator;
 
 class BootstrapEndpoint
@@ -149,16 +151,32 @@ class BootstrapEndpoint
      * Make a post request and decode the response
      *
      * @param array $body
-     * @return mixed
+     * @return \stdClass
      */
     public function post($body = [])
     {
-        $body = ['json'=>json_encode($body)];
+        $body                            = ['body' => json_encode($body)];
         $body['headers']['Content-Type'] = 'application/json';
 
-        $response = $this->postRequest($this->uri,$body)->getBody()->getContents();
-        $decoded  = json_decode($response);
+        try {
+            $post = $this->postRequest($this->uri, $body);
+        } catch ( ClientException $exception ) {
+            if ($exception->getResponse()->getStatusCode() === 422) {
 
-        return $decoded->data;
+                // Status code 422 is a validation error
+                $validationError = new ValidationError('Validation has failed');
+                $validationError->setErrors(json_decode($exception->getResponse()->getBody()->getContents()));
+                throw $validationError;
+            } else {
+                throw $exception;
+            }
+        }
+
+
+        $response = $post->getBody()->getContents();
+
+        $decoded = json_decode($response);
+
+        return $decoded;
     }
 }

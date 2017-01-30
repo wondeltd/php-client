@@ -1,6 +1,6 @@
 <?php namespace Wonde\Endpoints;
 
-use Wonde\Register;
+use Wonde\Writeback\SessionRegister;
 
 class Attendance extends BootstrapEndpoint
 {
@@ -12,12 +12,11 @@ class Attendance extends BootstrapEndpoint
     /**
      * Session Register
      *
-     * @param Register $register
-     * @return array
+     * @param SessionRegister $register
+     * @return \stdClass
      */
-    public function sessionRegister(Register $register){
-
+    public function sessionRegister(SessionRegister $register)
+    {
         return $this->post($register);
-
     }
 }
