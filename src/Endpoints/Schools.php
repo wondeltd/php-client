@@ -1,8 +1,5 @@
 <?php namespace Wonde\Endpoints;
 
-use GuzzleHttp\Psr7\Response;
-use Wonde\Exceptions\InvalidInputException;
-
 class Schools extends BootstrapEndpoint
 {
     /**
@@ -182,5 +179,26 @@ class Schools extends BootstrapEndpoint
     {
         $this->uri = 'schools/';
         return parent::get($id, $includes, $parameters);
+    }
+
+
+    /**
+     * Init attendance record
+     *
+     * @return Attendance
+     */
+    public function attendance()
+    {
+        return $this->attendance;
+    }
+
+    /**
+     * Init attendance record
+     *
+     * @return LessonAttendance
+     */
+    public function lessonAttendance()
+    {
+        return $this->lessonAttendance;
     }
 }

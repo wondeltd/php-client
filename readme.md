@@ -192,6 +192,34 @@ foreach ($school->attendance->all() as $attendance) {
 }
 ```
 
+### POST Attendance
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+// Initiate a new register
+$register = new \Wonde\Writeback\SessionRegister();
+
+// Initiate a new attendance record
+$attendance = new \Wonde\Writeback\SessionAttendanceRecord();
+
+// Set fields
+$attendance->setStudentId('STUDENT_ID_GOES_HERE');
+$attendance->setDate('2017-01-01');
+$attendance->setSession('AM'); // AM or PM
+$attendance->setAttendanceCodeId('ATTENDANCE_CODE_ID_GOES_HERE');
+$attendance->setComment('Comment here.');
+
+// Add attendance mark to register
+$register->add($attendance);
+
+// Save the session register
+$result = $school->attendance()->sessionRegister($register);
+
+// Writeback id is part of the response
+echo $result->writeback_id;
+```
+
 ### Attendance Codes
 
 ```php
@@ -331,6 +359,32 @@ $school = $client->school('SCHOOL_ID_GOES_HERE');
 foreach ($school->lessonAttendance->all() as $lessonAttendance) {
     echo $lessonAttendance->comment . PHP_EOL;
 }
+```
+
+### POST Lesson Attendance
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+// Initiate a new register
+$register = new \Wonde\Writeback\LessonRegister();
+
+// Initiate a new attendance record
+$attendance = new \Wonde\Writeback\LessonAttendanceRecord();
+
+// Set fields
+$attendance->setStudentId('STUDENT_ID_GOES_HERE');
+$attendance->setLessonId('LESSON_ID_GOES_HERE');
+$attendance->setAttendanceCodeId('ATTENDANCE_CODE_ID_GOES_HERE');
+
+// Add attendance mark to register
+$register->add($attendance);
+
+// Save the lesson register
+$result = $school->lessonAttendance()->lessonRegister($register);
+
+// Writeback id is part of the response
+echo $result->writeback_id;
 ```
 
 ### Medical Conditions
