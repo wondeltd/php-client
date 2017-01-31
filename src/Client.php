@@ -1,6 +1,7 @@
 <?php namespace Wonde;
 
 use Wonde\Endpoints\AttendanceCodes;
+use Wonde\Endpoints\BootstrapEndpoint;
 use Wonde\Endpoints\Schools;
 use Wonde\Exceptions\InvalidTokenException;
 
@@ -9,7 +10,6 @@ use Wonde\Exceptions\InvalidTokenException;
  */
 class Client
 {
-
     /**
      * @var AttendanceCodes
      */
@@ -53,31 +53,25 @@ class Client
     /**
      * Request access to the current school
      *
-     * @return array
+     * @return \stdClass
      */
     public function requestAccess($schoolId)
     {
-        $this->uri = $this->uri . $schoolId . '/request-access';
+        $uri = 'schools/' . $schoolId . '/request-access';
 
-        /** @var array $response */
-        $response = $this->post();
-
-        return $response;
+        return (new BootstrapEndpoint($this->token, $uri))->post();
     }
 
     /**
      * Revoke access to the current school
      *
-     * @return array
+     * @return \stdClass
      */
     public function revokeAccess($schoolId)
     {
-        $this->uri = $this->uri . $schoolId . '/revoke-access';
+        $uri = 'schools/' . $schoolId . '/revoke-access';
 
-        /** @var array $response */
-        $response = $this->post();
-
-        return $response;
+        return (new BootstrapEndpoint($this->token, $uri))->delete();
     }
 }
 
