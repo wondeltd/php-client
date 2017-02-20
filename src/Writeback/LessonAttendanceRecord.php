@@ -74,7 +74,7 @@ class LessonAttendanceRecord
      */
     public function isValid()
     {
-        return ! (empty($this->getStudentId()) || empty($this->getLessonId()) || empty($this->getAttendanceCodeId()));
+        return ! (empty($this->student_id) || empty($this->lesson_id) || empty($this->attendance_code_id));
     }
 
     /**

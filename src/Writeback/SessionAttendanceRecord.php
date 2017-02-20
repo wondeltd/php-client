@@ -112,7 +112,7 @@ class SessionAttendanceRecord
      */
     public function isValid()
     {
-        return ! (empty($this->getDate()) || empty($this->getStudentId()) || empty($this->getSession()) || empty($this->getAttendanceCodeId()));
+        return ! (empty($this->date) || empty($this->student_id) || empty($this->session) || empty($this->attendance_code_id));
     }
 
     /**
