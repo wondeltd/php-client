@@ -209,6 +209,7 @@ $attendance->setDate('2017-01-01');
 $attendance->setSession('AM'); // AM or PM
 $attendance->setAttendanceCodeId('ATTENDANCE_CODE_ID_GOES_HERE');
 $attendance->setComment('Comment here.');
+$attendance->setMinutesLate(10);
 
 // Add attendance mark to register
 $register->add($attendance);

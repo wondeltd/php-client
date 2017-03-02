@@ -1,6 +1,7 @@
 <?php namespace Wonde\Writeback;
 
 use Wonde\Exceptions\InvalidAttendanceException;
+use Wonde\Exceptions\InvalidInputException;
 use Wonde\Exceptions\InvalidSessionException;
 
 class SessionAttendanceRecord
@@ -29,6 +30,11 @@ class SessionAttendanceRecord
      * @var string
      */
     private $comment;
+
+    /**
+     * @var int
+     */
+    private $minutesLate;
 
     /**
      * Set student id
@@ -74,7 +80,7 @@ class SessionAttendanceRecord
      *
      * @param string $session
      * @return void
-     * @throws InvalidAttendanceException
+     * @throws InvalidSessionException
      */
     public function setSession($session)
     {
@@ -173,10 +179,16 @@ class SessionAttendanceRecord
             $required['comment'] = $comment;
         }
 
+        if($minutesLate = $this->getMinutesLate() && !empty($minutesLate)) {
+            $required['minutes_late'] = $minutesLate;
+        }
+
         return $required;
     }
 
     /**
+     * Get the comment value
+     *
      * @return string
      */
     public function getComment()
@@ -185,6 +197,8 @@ class SessionAttendanceRecord
     }
 
     /**
+     * Set the comment value
+     *
      * @param string $comment
      */
     public function setComment($comment)
@@ -192,4 +206,28 @@ class SessionAttendanceRecord
         $this->comment = $comment;
     }
 
+    /**
+     * Set minutes late
+     *
+     * @param $number
+     * @throws InvalidInputException
+     */
+    public function setMinutesLate($number)
+    {
+        if(!is_numeric($number)) {
+            throw new InvalidInputException('Only pass a numeric value to minutes late');
+        }
+
+        $this->minutesLate = $number;
+    }
+
+    /**
+     * Get minutes late
+     *
+     * @return int
+     */
+    public function getMinutesLate()
+    {
+        return $this->minutesLate;
+    }
 }
