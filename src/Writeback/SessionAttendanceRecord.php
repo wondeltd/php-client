@@ -175,11 +175,15 @@ class SessionAttendanceRecord
             'attendance_code_id' => $this->getAttendanceCodeId()
         ];
 
-        if ($comment = $this->getComment() && ! empty($comment)) {
+        $comment = $this->getComment();
+
+        if ( ! empty($comment)) {
             $required['comment'] = $comment;
         }
 
-        if($minutesLate = $this->getMinutesLate() && !empty($minutesLate)) {
+        $minutesLate = $this->getMinutesLate();
+
+        if ( ! empty($minutesLate)) {
             $required['minutes_late'] = $minutesLate;
         }
 
@@ -214,7 +218,7 @@ class SessionAttendanceRecord
      */
     public function setMinutesLate($number)
     {
-        if(!is_numeric($number)) {
+        if ( ! is_numeric($number)) {
             throw new InvalidInputException('Only pass a numeric value to minutes late');
         }
 
