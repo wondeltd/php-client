@@ -145,6 +145,60 @@ foreach ($school->achievements->all() as $achievement) {
     echo $achievement->comment . PHP_EOL;
 }
 ```
+
+### POST Achievements
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+$array = [
+    'students'      => [
+        [
+            'student_id' => 'A1039521228',
+            'points'     => 200,
+            'award'      => 'TROP',
+            'award_date' => '2016-04-05',
+        ],
+    ],
+    'employee_id'   => 'A1375078684',
+    'date'          => '2016-04-04',
+    'type'          => 'NYPA',
+    'comment'       => 'A4',
+    'activity_type' => 'RE',
+];
+
+try {
+    $response = $school->achievements->create($array);
+} catch (\Wonde\Exceptions\ValidationError $error) {
+    $errors = $error->getErrors();
+}
+```
+
+### DELETE Achievements
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+$school->achievements->delete('WONDE_ACHIEVEMENTS_ID_HERE');
+```
+
+### Achievements Attributes
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get achievement attributes
+foreach ($school->achievementsAttributes->all() as $achievement) {
+    echo $achievement->id . PHP_EOL;
+}
+```
+
+
 ### Assessment - (BETA)
 This endpoint is included in the stable release but is likely to change in the future. Please contact support for more information.
 
@@ -242,6 +296,68 @@ $school = $client->school('SCHOOL_ID_GOES_HERE');
 // Get behaviours
 foreach ($school->behaviours->all() as $behaviour) {
     echo $behaviour->incident . PHP_EOL;
+}
+```
+
+### POST Behaviours
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+$array = [
+    'students'      => [
+        [
+            'student_id'  => 'A1039521228',
+            'role'        => 'AG',
+            'action'      => 'COOL',
+            'action_date' => '2016-04-01',
+            'points'      => 200,
+        ],
+        [
+            'student_id' => 'A870869351',
+            'role'       => 'TA',
+            'points'     => 2,
+        ],
+    ],
+    'employee_id'   => 'A1375078684',
+    'date'          => '2016-03-31',
+    'status'        => 'REV2',
+    'type'          => 'BULL',
+    'bullying_type' => 'B_INT',
+    'comment'       => 'Bulling incident',
+    'activity_type' => 'RE',
+    'location'      => 'CORR',
+    'time'          => 'LUN',
+];
+
+try {
+    $response = $school->behaviours->create($array);
+} catch (\Wonde\Exceptions\ValidationError $error) {
+    $errors = $error->getErrors();
+}
+```
+
+### DELETE Behaviours
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+$school->behaviours->delete('WONDE_BEHAVIOUR_ID_HERE');
+```
+
+### Behaviours Attributes
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get behaviours
+foreach ($school->behavioursAttributes->all() as $behaviour) {
+    echo $behaviour->id . PHP_EOL;
 }
 ```
 

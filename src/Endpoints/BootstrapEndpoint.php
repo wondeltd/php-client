@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Response;
 use Wonde\Exceptions\ValidationError;
 use Wonde\ResultIterator;
 
@@ -205,6 +206,20 @@ class BootstrapEndpoint
     }
 
     /**
+     * Make a delete request and return json decoded body
+     *
+     * @param       $endpoint
+     * @param array $body
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function deleteRequestReturnBody($endpoint, $body = [])
+    {
+        /** @var Response $response */
+        $response = $this->deleteUrl(self::endpoint . $endpoint, $body);
+        return json_decode($response->getBody()->getContents());
+    }
+
+    /**
      * Make a delete request to url
      *
      * @param       $url
@@ -214,29 +229,5 @@ class BootstrapEndpoint
     private function deleteUrl($url, $body = [])
     {
         return $this->client()->delete($url, $body);
-    }
-
-    /**
-     * Make a delete request and decode the response
-     *
-     * @param array $body
-     * @return \stdClass
-     */
-    public function delete($body = [])
-    {
-        $body                            = ['body' => json_encode($body)];
-        $body['headers']['Content-Type'] = 'application/json';
-
-        try {
-            $delete = $this->deleteRequest($this->uri, $body);
-        } catch ( ClientException $exception ) {
-            return $this->throwError($exception);
-        }
-
-        $response = $delete->getBody()->getContents();
-
-        $decoded = json_decode($response);
-
-        return $decoded;
     }
 }

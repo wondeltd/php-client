@@ -71,7 +71,7 @@ class Client
     {
         $uri = 'schools/' . $schoolId . '/revoke-access';
 
-        return (new BootstrapEndpoint($this->token, $uri))->delete();
+        return (new BootstrapEndpoint($this->token, $uri))->deleteRequestReturnBody($uri);
     }
 }
 
