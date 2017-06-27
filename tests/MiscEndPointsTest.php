@@ -28,11 +28,13 @@ class MiscEndPointsTest extends PHPUnit_Framework_TestCase
     public function test_request_access()
     {
         $response = $this->client->requestAccess($this->schoolId);
+        $this->assertTrue($response->success);
     }
 
     public function test_revoke_access()
     {
         $response = $this->client->revokeAccess($this->schoolId);
+        $this->assertTrue($response->success);
     }
 
     public function test_single_school()
@@ -45,6 +47,17 @@ class MiscEndPointsTest extends PHPUnit_Framework_TestCase
     {
         $items = [];
         foreach ($this->school->students->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
+    public function tests_attendance_summaries()
+    {
+        $items = [];
+        foreach ($this->school->attendanceSummaries->all() as $row) {
             $items[] = $row;
             $this->assertTrue($row instanceof stdClass);
             $this->assertNotEmpty($row);

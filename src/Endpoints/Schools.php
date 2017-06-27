@@ -18,6 +18,11 @@ class Schools extends BootstrapEndpoint
     public $attendance;
 
     /**
+     * @var AttendanceSummaries
+     */
+    public $attendanceSummaries;
+
+    /**
      * @var Behaviours
      */
     public $behaviours;
@@ -124,6 +129,7 @@ class Schools extends BootstrapEndpoint
         $this->achievementsAttributes = new AchievementsAttributes($token, $this->uri);
         $this->assessment             = new Assessment($token, $this->uri);
         $this->attendance             = new Attendance($token, $this->uri);
+        $this->attendanceSummaries    = new AttendanceSummaries($token, $this->uri);
         $this->behaviours             = new Behaviours($token, $this->uri);
         $this->behavioursAttributes   = new BehavioursAttributes($token, $this->uri);
         $this->classes                = new Classes($token, $this->uri);
