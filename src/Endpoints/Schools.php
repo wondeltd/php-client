@@ -164,6 +164,19 @@ class Schools extends BootstrapEndpoint
     }
 
     /**
+     * Return all audited schools
+     *
+     * @param array $includes
+     * @param array $parameters
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function audited($includes = [], $parameters = [])
+    {
+        $this->uri = $this->uri . 'audited/';
+        return $this->all($includes, $parameters);
+    }
+
+    /**
      * Search available schools
      *
      * @param array $includes
