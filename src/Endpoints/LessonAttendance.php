@@ -7,7 +7,7 @@ class LessonAttendance extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'attendance/lesson';
+    public $uri = 'attendance/lesson/';
 
     /**
      * Lesson Register
