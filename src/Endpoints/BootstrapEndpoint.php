@@ -125,12 +125,25 @@ class BootstrapEndpoint
     }
 
     /**
-     * Get single resource
+     * Get single resource, data only
      *
      * @param $id
      * @return mixed
      */
     public function get($id, $includes = [], $parameters = [])
+    {
+        $decoded = $this->getWithMeta($id, $includes, $parameters);
+
+        return $decoded->data;
+    }
+
+    /**
+     * Get single resource, data and meta
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getWithMeta($id, $includes = [], $parameters = [])
     {
         if ( ! empty($includes)) {
             $parameters['include'] = implode(',', $includes);
@@ -141,7 +154,7 @@ class BootstrapEndpoint
         $response = $this->getRequest($uri)->getBody()->getContents();
         $decoded  = json_decode($response);
 
-        return $decoded->data;
+        return $decoded;
     }
 
     /**

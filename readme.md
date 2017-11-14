@@ -133,6 +133,22 @@ foreach ($school->students->all(['contact_details', 'extended_details'], ['updat
 }
 ```
 
+### Pre Admission Students
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get students
+foreach ($school->studentsPreAdmission->all() as $studentPreAdmission) {
+    echo $studentPreAdmission->forename . ' ' . $studentPreAdmission->surname . PHP_EOL;
+}
+
+// Get single student
+$student = $school->studentsPreAdmission->get('STUDENT_ID_GOES_HERE');
+```
+
 ### Achievements
 
 ```php
@@ -439,6 +455,19 @@ foreach ($school->employees->all() as $employee) {
 }
 ```
 
+### Employee Absencess
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get employee absencess
+foreach ($school->employeeAbsences->all() as $employeeAbsence) {
+    echo $employeeAbsence->employee . ' ' . $employeeAbsence->absence_type . PHP_EOL;
+}
+```
+
 ### Events
 
 ```php
@@ -462,6 +491,19 @@ $school = $client->school('SCHOOL_ID_GOES_HERE');
 // Get groups
 foreach ($school->groups->all() as $group) {
     echo $group->name . PHP_EOL;
+}
+```
+
+### Historical Groups
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get groups
+foreach ($school->groupsHistorical->all() as $historicalGroup) {
+    echo $historicalGroup->name . PHP_EOL;
 }
 ```
 

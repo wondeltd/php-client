@@ -7,7 +7,7 @@ class Attendance extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'attendance/session';
+    public $uri = 'attendance/session/';
 
     /**
      * Session Register

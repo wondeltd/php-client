@@ -48,9 +48,19 @@ class Schools extends BootstrapEndpoint
     public $employees;
 
     /**
+     * @var EmployeeAbsences
+     */
+    public $employeeAbsences;
+
+    /**
      * @var Groups
      */
     public $groups;
+
+    /**
+     * @var GroupsHistorical
+     */
+    public $groupsHistorical;
 
     /**
      * @var Lessons
@@ -98,6 +108,11 @@ class Schools extends BootstrapEndpoint
     public $students;
 
     /**
+     * @var StudentsPreAdmission
+     */
+    public $studentsPreAdmission;
+
+    /**
      * @var Assessment
      */
     public $assessment;
@@ -137,8 +152,10 @@ class Schools extends BootstrapEndpoint
         $this->counts                 = new Counts($token, $this->uri);
         $this->deletions              = new Deletions($token, $this->uri);
         $this->employees              = new Employees($token, $this->uri);
+        $this->employeeAbsences       = new EmployeeAbsences($token, $this->uri);
         $this->events                 = new Events($token, $this->uri);
         $this->groups                 = new Groups($token, $this->uri);
+        $this->groupsHistorical       = new GroupsHistorical($token, $this->uri);
         $this->lessons                = new Lessons($token, $this->uri);
         $this->lessonAttendance       = new LessonAttendance($token, $this->uri);
         $this->medicalConditions      = new MedicalConditions($token, $this->uri);
@@ -147,6 +164,7 @@ class Schools extends BootstrapEndpoint
         $this->photos                 = new Photos($token, $this->uri);
         $this->rooms                  = new Rooms($token, $this->uri);
         $this->students               = new Students($token, $this->uri);
+        $this->studentsPreAdmission   = new StudentsPreAdmission($token, $this->uri);
         $this->subjects               = new Subjects($token, $this->uri);
     }
 
