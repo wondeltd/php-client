@@ -4,6 +4,7 @@ use Wonde\Endpoints\AttendanceCodes;
 use Wonde\Endpoints\BootstrapEndpoint;
 use Wonde\Endpoints\Schools;
 use Wonde\Exceptions\InvalidTokenException;
+use Wonde\Endpoints\Meta;
 
 /**
  * @property Schools schools
@@ -14,6 +15,11 @@ class Client
      * @var AttendanceCodes
      */
     public $attendanceCodes;
+
+    /**
+     * @var Meta
+     */
+    public $meta;
 
     /**
      * @var string
@@ -36,6 +42,7 @@ class Client
 
         $this->token           = $token;
         $this->schools         = new Schools($token);
+        $this->meta            = new Meta($token);
         $this->attendanceCodes = new AttendanceCodes($token);
     }
 
@@ -74,4 +81,3 @@ class Client
         return (new BootstrapEndpoint($this->token, $uri))->deleteRequestReturnBody($uri);
     }
 }
-
