@@ -636,3 +636,11 @@ foreach ($school->subjects->all() as $subject) {
     echo $subject->name . PHP_EOL;
 }
 ```
+
+### Meta
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$metaObject = $client->meta->get('SCHOOL_ID_GOES_HERE');
+```
