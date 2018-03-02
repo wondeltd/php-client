@@ -585,6 +585,21 @@ foreach ($school->medicalEvents->all() as $medicalEvent) {
 }
 ```
 
+### Doctors
+
+```php
+$client = new \Wonde\Client('TOKEN_GOES_HERE');
+
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+
+// Get doctors
+foreach ($school->doctors->all() as $doctor) {
+    echo $doctor->surname . PHP_EOL;
+    echo $doctor->practice_name . PHP_EOL;
+    echo $doctor->telephone . PHP_EOL;
+}
+```
+
 ### Periods
 
 ```php
