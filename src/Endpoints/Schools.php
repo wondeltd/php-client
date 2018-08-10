@@ -58,11 +58,6 @@ class Schools extends BootstrapEndpoint
     public $groups;
 
     /**
-     * @var GroupsHistorical
-     */
-    public $groupsHistorical;
-
-    /**
      * @var Lessons
      */
     public $lessons;
@@ -161,7 +156,6 @@ class Schools extends BootstrapEndpoint
         $this->employeeAbsences       = new EmployeeAbsences($token, $this->uri);
         $this->events                 = new Events($token, $this->uri);
         $this->groups                 = new Groups($token, $this->uri);
-        $this->groupsHistorical       = new GroupsHistorical($token, $this->uri);
         $this->lessons                = new Lessons($token, $this->uri);
         $this->lessonAttendance       = new LessonAttendance($token, $this->uri);
         $this->medicalConditions      = new MedicalConditions($token, $this->uri);

@@ -1,4 +1,5 @@
 # Wonde PHP Client
+
 Documentation https://wonde.com/docs/api/1.0/
 
 ## Installation
@@ -9,13 +10,14 @@ Using Composer:
 
 ```json
 {
-    "require": {
-      "wondeltd/php-client": "1.*"
-    }
+  "require": {
+    "wondeltd/php-client": "1.*"
+  }
 }
 ```
 
-or 
+or
+
 ```bash
 composer require wondeltd/php-client
 ```
@@ -44,10 +46,10 @@ foreach ($client->schools->all() as $school) {
     // Display school name
     echo $school->name . PHP_EOL;
 }
-
 ```
 
 ### Single School
+
 ```php
 $client = new \Wonde\Client('TOKEN_GOES_HERE');
 
@@ -214,8 +216,8 @@ foreach ($school->achievementsAttributes->all() as $achievement) {
 }
 ```
 
-
 ### Assessment - (BETA)
+
 This endpoint is included in the stable release but is likely to change in the future. Please contact support for more information.
 
 ```php
@@ -238,7 +240,7 @@ foreach ($school->assessment->templates->all() as $resultsets) {
     echo $resultsets->id . PHP_EOL;
 }
 
-// Get results 
+// Get results
 foreach ($school->assessment->results->all() as $results) {
     echo $results->id . PHP_EOL;
 }
@@ -491,19 +493,6 @@ $school = $client->school('SCHOOL_ID_GOES_HERE');
 // Get groups
 foreach ($school->groups->all() as $group) {
     echo $group->name . PHP_EOL;
-}
-```
-
-### Historical Groups
-
-```php
-$client = new \Wonde\Client('TOKEN_GOES_HERE');
-
-$school = $client->school('SCHOOL_ID_GOES_HERE');
-
-// Get groups
-foreach ($school->groupsHistorical->all() as $historicalGroup) {
-    echo $historicalGroup->name . PHP_EOL;
 }
 ```
 
