@@ -457,14 +457,14 @@ foreach ($school->employees->all() as $employee) {
 }
 ```
 
-### Employee Absencess
+### Employee Absences
 
 ```php
 $client = new \Wonde\Client('TOKEN_GOES_HERE');
 
 $school = $client->school('SCHOOL_ID_GOES_HERE');
 
-// Get employee absencess
+// Get employee absences
 foreach ($school->employeeAbsences->all() as $employeeAbsence) {
     echo $employeeAbsence->employee . ' ' . $employeeAbsence->absence_type . PHP_EOL;
 }
