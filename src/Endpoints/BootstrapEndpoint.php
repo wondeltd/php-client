@@ -108,7 +108,7 @@ class BootstrapEndpoint
      * @param $endpoint
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
-    private function getRequest($endpoint)
+    public function getRequest($endpoint)
     {
         return $this->getUrl(self::endpoint . $endpoint);
     }
@@ -119,7 +119,7 @@ class BootstrapEndpoint
      * @param $url
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
-    public function getUrl($url)
+    private function getUrl($url)
     {
         return $this->client()->get($url);
     }
