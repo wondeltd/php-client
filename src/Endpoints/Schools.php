@@ -13,6 +13,11 @@ class Schools extends BootstrapEndpoint
     public $achievements;
 
     /**
+     * @var AchievementsAttributes
+     */
+    public $achievementsAttributes;
+
+    /**
      * @var Attendance
      */
     public $attendance;
@@ -26,6 +31,11 @@ class Schools extends BootstrapEndpoint
      * @var Behaviours
      */
     public $behaviours;
+
+    /**
+     * @var BehavioursAttributes
+     */
+    public $behavioursAttributes;
 
     /**
      * @var Classes
@@ -121,7 +131,6 @@ class Schools extends BootstrapEndpoint
      * @var Events
      */
     public $events;
-
     /**
      * @var Doctors
      */
