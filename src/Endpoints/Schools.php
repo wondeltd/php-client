@@ -177,6 +177,36 @@ class Schools extends BootstrapEndpoint
         $this->subjects               = new Subjects($token, $this->uri);
     }
 
+    public function updateDomain($domain)
+    {
+        $this->achievements->domain = $domain;
+        $this->achievementsAttributes->domain = $domain;
+        $this->assessment->domain = $domain;
+        $this->attendance->domain = $domain;
+        $this->attendanceSummaries->domain = $domain;
+        $this->behaviours->domain = $domain;
+        $this->behavioursAttributes->domain = $domain;
+        $this->classes->domain = $domain;
+        $this->contacts->domain = $domain;
+        $this->counts->domain = $domain;
+        $this->deletions->domain = $domain;
+        $this->doctors->domain = $domain;
+        $this->employees->domain = $domain;
+        $this->employeeAbsences->domain = $domain;
+        $this->events->domain = $domain;
+        $this->groups->domain = $domain;
+        $this->lessons->domain = $domain;
+        $this->lessonAttendance->domain = $domain;
+        $this->medicalConditions->domain = $domain;
+        $this->medicalEvents->domain = $domain;
+        $this->periods->domain = $domain;
+        $this->photos->domain = $domain;
+        $this->rooms->domain = $domain;
+        $this->students->domain = $domain;
+        $this->studentsPreAdmission->domain = $domain;
+        $this->subjects->domain = $domain;
+    }
+
     /**
      * Return all pending schools
      *
