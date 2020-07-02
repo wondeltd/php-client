@@ -10,8 +10,20 @@ class BootstrapEndpoint
 {
     /**
      * @var string
+     * @deprecated To allow for regional domains. Use getEndpoint instead
+     * @see BootstrapEndpoint::getEndpoint()
      */
     const endpoint = 'https://api.wonde.com/v1.0/';
+
+    /**
+     * @var string
+     */
+    public $domain = 'api.wonde.com';
+
+    /**
+     * @var string
+     */
+    public $version = 'v1.0';
 
     /**
      * @var string
@@ -110,7 +122,7 @@ class BootstrapEndpoint
      */
     private function getRequest($endpoint)
     {
-        return $this->getUrl(self::endpoint . $endpoint);
+        return $this->getUrl($this->getEndpoint() . $endpoint);
     }
 
     /**
@@ -166,7 +178,7 @@ class BootstrapEndpoint
      */
     public function postRequest($endpoint, $body = [])
     {
-        return $this->postUrl(self::endpoint . $endpoint, $body);
+        return $this->postUrl($this->getEndpoint() . $endpoint, $body);
     }
 
     /**
@@ -215,7 +227,7 @@ class BootstrapEndpoint
      */
     public function deleteRequest($endpoint, $body = [])
     {
-        return $this->deleteUrl(self::endpoint . $endpoint, $body);
+        return $this->deleteUrl($this->getEndpoint() . $endpoint, $body);
     }
 
     /**
@@ -228,7 +240,7 @@ class BootstrapEndpoint
     public function deleteRequestReturnBody($endpoint, $body = [])
     {
         /** @var Response $response */
-        $response = $this->deleteUrl(self::endpoint . $endpoint, $body);
+        $response = $this->deleteUrl($this->getEndpoint() . $endpoint, $body);
         return json_decode($response->getBody()->getContents());
     }
 
@@ -242,5 +254,15 @@ class BootstrapEndpoint
     private function deleteUrl($url, $body = [])
     {
         return $this->client()->delete($url, $body);
+    }
+
+    /**
+     * Get base endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return "https://{$this->domain}/{$this->version}/";
     }
 }
