@@ -1,4 +1,6 @@
-<?php namespace Wonde;
+<?php
+
+namespace Wonde;
 
 use Wonde\Endpoints\AttendanceCodes;
 use Wonde\Endpoints\BootstrapEndpoint;
@@ -36,7 +38,7 @@ class Client
      */
     public function __construct($token)
     {
-        if (empty($token) or ! is_string($token)) {
+        if (empty($token) or !is_string($token)) {
             throw new InvalidTokenException('Token string is required');
         }
 
@@ -62,11 +64,11 @@ class Client
      *
      * @return \stdClass
      */
-    public function requestAccess($schoolId)
+    public function requestAccess($schoolId, $payload = [])
     {
         $uri = 'schools/' . $schoolId . '/request-access';
 
-        return (new BootstrapEndpoint($this->token, $uri))->post();
+        return (new BootstrapEndpoint($this->token, $uri))->post($payload);
     }
 
     /**
