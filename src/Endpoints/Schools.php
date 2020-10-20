@@ -131,10 +131,16 @@ class Schools extends BootstrapEndpoint
      * @var Events
      */
     public $events;
+    
     /**
      * @var Doctors
      */
     public $doctors;
+    
+    /**
+     * @var Exclusions
+     */
+    public $exclusions;
 
     /**
      * Schools constructor.
@@ -164,6 +170,7 @@ class Schools extends BootstrapEndpoint
         $this->employees              = new Employees($token, $this->uri);
         $this->employeeAbsences       = new EmployeeAbsences($token, $this->uri);
         $this->events                 = new Events($token, $this->uri);
+        $this->exclusions             = new Exclusions($token, $this->uri);
         $this->groups                 = new Groups($token, $this->uri);
         $this->lessons                = new Lessons($token, $this->uri);
         $this->lessonAttendance       = new LessonAttendance($token, $this->uri);
@@ -194,6 +201,7 @@ class Schools extends BootstrapEndpoint
         $this->employees->domain = $domain;
         $this->employeeAbsences->domain = $domain;
         $this->events->domain = $domain;
+        $this->exclusions->domain = $domain;
         $this->groups->domain = $domain;
         $this->lessons->domain = $domain;
         $this->lessonAttendance->domain = $domain;
