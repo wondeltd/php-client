@@ -164,6 +164,7 @@ class Schools extends BootstrapEndpoint
         $this->employees              = new Employees($token, $this->uri);
         $this->employeeAbsences       = new EmployeeAbsences($token, $this->uri);
         $this->events                 = new Events($token, $this->uri);
+        $this->exclusions             = new Exclusions($token, $this->uri);
         $this->groups                 = new Groups($token, $this->uri);
         $this->lessons                = new Lessons($token, $this->uri);
         $this->lessonAttendance       = new LessonAttendance($token, $this->uri);
