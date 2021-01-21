@@ -216,7 +216,7 @@ foreach ($school->achievementsAttributes->all() as $achievement) {
 }
 ```
 
-### Assessment - (BETA)
+### Assessment
 
 This endpoint is included in the stable release but is likely to change in the future. Please contact support for more information.
 
