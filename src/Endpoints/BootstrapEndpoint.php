@@ -54,7 +54,10 @@ class BootstrapEndpoint
      */
     private function client()
     {
-        if ((float) Client::MAJOR_VERSION >= 6 || (float) Client::VERSION >= 6) {
+        if (
+            defined('GuzzleHttp\Client::MAJOR_VERSION') && (float) Client::MAJOR_VERSION >= 6
+            ||
+            defined('GuzzleHttp\::VERSION') && (float) Client::VERSION >= 6) {
             return new Client([
                 'headers' => [
                     'Authorization' => 'Basic ' . base64_encode($this->token . ':'),
