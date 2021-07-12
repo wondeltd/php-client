@@ -44,7 +44,7 @@ class SessionAttendanceRecord
     /**
      * Set student id
      *
-     * @param string $student_id
+     * @param string $studentId
      * @return void
      * @throws InvalidAttendanceException
      */
@@ -60,13 +60,13 @@ class SessionAttendanceRecord
         /**
      * Set employee id
      *
-     * @param string $employee_id
+     * @param string $employeeId
      * @return void
      * @throws InvalidAttendanceException
      */
-    public function setEmployeeId($employee_id)
+    public function setEmployeeId($employeeId)
     {
-        $this->employee_id = $employee_id;
+        $this->employee_id = $employeeId;
     }
 
     /**
@@ -208,10 +208,10 @@ class SessionAttendanceRecord
             $required['comment'] = $comment;
         }
         
-        $employee_id = $this->getEmployeeId();
+        $employeeId = $this->getEmployeeId();
 
-        if ( ! empty($employee_id)) {
-            $required['employee_id'] = $employee_id;
+        if ( ! empty($employeeId)) {
+            $required['employee_id'] = $employeeId;
         }
 
         $minutesLate = $this->getMinutesLate();
