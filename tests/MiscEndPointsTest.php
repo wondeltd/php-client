@@ -1,6 +1,7 @@
 <?php
+use PHPUnit\Framework\TestCase;
 
-class MiscEndPointsTest extends PHPUnit_Framework_TestCase
+class MiscEndPointsTest extends TestCase
 {
     /**
      * @var \Wonde\Endpoints\Schools
@@ -16,7 +17,7 @@ class MiscEndPointsTest extends PHPUnit_Framework_TestCase
      */
     private $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         ini_set('memory_limit', '3000M');
         $this->token    = file_get_contents(__DIR__ . '/../.token');

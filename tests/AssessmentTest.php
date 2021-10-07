@@ -1,13 +1,14 @@
 <?php
+use PHPUnit\Framework\TestCase;
 
-class AssessmentTest extends PHPUnit_Framework_TestCase
+class AssessmentTest extends TestCase
 {
     /**
      * @var \Wonde\Endpoints\Schools
      */
     public $school;
 
-    public function setUp()
+    public function setUp(): void
     {
         ini_set('memory_limit','3000M');
         $client = new \Wonde\Client(file_get_contents(__DIR__ . '/../.token'));
