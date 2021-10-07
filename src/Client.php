@@ -24,6 +24,11 @@ class Client
     public $meta;
 
     /**
+     * @var Schools
+     */
+    public $schools;
+
+    /**
      * @var string
      */
     private $token;
@@ -31,7 +36,7 @@ class Client
     /**
      * @var string
      */
-    const version = '2.1.2';
+    const version = '3.0.0';
 
     /**
      * Client constructor.

@@ -4,14 +4,14 @@ Documentation https://wonde.com/docs/api/1.0/
 
 ## Installation
 
-Requires PHP 5.6.
+Requires PHP 7.2.5+ (including PHP 8.0)
 
 Using Composer:
 
 ```json
 {
   "require": {
-    "wondeltd/php-client": "1.*"
+    "wondeltd/php-client": "3.*"
   }
 }
 ```
