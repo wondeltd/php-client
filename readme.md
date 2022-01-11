@@ -301,7 +301,13 @@ $client = new \Wonde\Client('TOKEN_GOES_HERE');
 // Get attendance codes
 foreach ($client->attendanceCodes->all() as $attendanceCode) {
     echo $attendanceCode->code . PHP_EOL;
- }
+}
+
+// Get school attendance codes
+$school = $client->school('SCHOOL_ID_GOES_HERE');
+foreach ($school->attendanceCodes->all() as $attendanceCode) {
+    echo $attendanceCode->code . PHP_EOL;
+}
 ```
 
 ### Attendance Summaries
