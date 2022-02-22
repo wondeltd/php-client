@@ -143,45 +143,51 @@ class Schools extends BootstrapEndpoint
     public $exclusions;
 
     /**
+     * @var string
+     */
+    private $logPath;
+
+    /**
      * Schools constructor.
      *
      * @param string $uri
      */
-    public function __construct($token, $id = false)
+    public function __construct($token, $id = false, $logPath = '')
     {
         $this->token = $token;
+        $this->logPath = $logPath;
 
         if ($id) {
             $this->uri = $this->uri . $id . '/';
         }
 
-        $this->achievements           = new Achievements($token, $this->uri);
-        $this->achievementsAttributes = new AchievementsAttributes($token, $this->uri);
-        $this->assessment             = new Assessment($token, $this->uri);
-        $this->attendance             = new Attendance($token, $this->uri);
-        $this->attendanceSummaries    = new AttendanceSummaries($token, $this->uri);
-        $this->behaviours             = new Behaviours($token, $this->uri);
-        $this->behavioursAttributes   = new BehavioursAttributes($token, $this->uri);
-        $this->classes                = new Classes($token, $this->uri);
-        $this->contacts               = new Contacts($token, $this->uri);
-        $this->counts                 = new Counts($token, $this->uri);
-        $this->deletions              = new Deletions($token, $this->uri);
-        $this->doctors                = new Doctors($token, $this->uri);
-        $this->employees              = new Employees($token, $this->uri);
-        $this->employeeAbsences       = new EmployeeAbsences($token, $this->uri);
-        $this->events                 = new Events($token, $this->uri);
-        $this->exclusions             = new Exclusions($token, $this->uri);
-        $this->groups                 = new Groups($token, $this->uri);
-        $this->lessons                = new Lessons($token, $this->uri);
-        $this->lessonAttendance       = new LessonAttendance($token, $this->uri);
-        $this->medicalConditions      = new MedicalConditions($token, $this->uri);
-        $this->medicalEvents          = new MedicalEvents($token, $this->uri);
-        $this->periods                = new Periods($token, $this->uri);
-        $this->photos                 = new Photos($token, $this->uri);
-        $this->rooms                  = new Rooms($token, $this->uri);
-        $this->students               = new Students($token, $this->uri);
-        $this->studentsPreAdmission   = new StudentsPreAdmission($token, $this->uri);
-        $this->subjects               = new Subjects($token, $this->uri);
+        $this->achievements           = new Achievements($token, $this->uri, $this->logPath);
+        $this->achievementsAttributes = new AchievementsAttributes($token, $this->uri, $this->logPath);
+        $this->assessment             = new Assessment($token, $this->uri, $this->logPath);
+        $this->attendance             = new Attendance($token, $this->uri, $this->logPath);
+        $this->attendanceSummaries    = new AttendanceSummaries($token, $this->uri, $this->logPath);
+        $this->behaviours             = new Behaviours($token, $this->uri, $this->logPath);
+        $this->behavioursAttributes   = new BehavioursAttributes($token, $this->uri, $this->logPath);
+        $this->classes                = new Classes($token, $this->uri, $this->logPath);
+        $this->contacts               = new Contacts($token, $this->uri, $this->logPath);
+        $this->counts                 = new Counts($token, $this->uri, $this->logPath);
+        $this->deletions              = new Deletions($token, $this->uri, $this->logPath);
+        $this->doctors                = new Doctors($token, $this->uri, $this->logPath);
+        $this->employees              = new Employees($token, $this->uri, $this->logPath);
+        $this->employeeAbsences       = new EmployeeAbsences($token, $this->uri, $this->logPath);
+        $this->events                 = new Events($token, $this->uri, $this->logPath);
+        $this->exclusions             = new Exclusions($token, $this->uri, $this->logPath);
+        $this->groups                 = new Groups($token, $this->uri, $this->logPath);
+        $this->lessons                = new Lessons($token, $this->uri, $this->logPath);
+        $this->lessonAttendance       = new LessonAttendance($token, $this->uri, $this->logPath);
+        $this->medicalConditions      = new MedicalConditions($token, $this->uri, $this->logPath);
+        $this->medicalEvents          = new MedicalEvents($token, $this->uri, $this->logPath);
+        $this->periods                = new Periods($token, $this->uri, $this->logPath);
+        $this->photos                 = new Photos($token, $this->uri, $this->logPath);
+        $this->rooms                  = new Rooms($token, $this->uri, $this->logPath);
+        $this->students               = new Students($token, $this->uri, $this->logPath);
+        $this->studentsPreAdmission   = new StudentsPreAdmission($token, $this->uri, $this->logPath);
+        $this->subjects               = new Subjects($token, $this->uri, $this->logPath);
     }
 
     public function updateDomain($domain)

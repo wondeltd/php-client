@@ -31,14 +31,19 @@ class Client
     /**
      * @var string
      */
-    const version = '2.1.2';
+    const version = '2.2.2';
+
+    /**
+     * @var string
+     */
+    private $logPath = '';
 
     /**
      * Client constructor.
      */
-    public function __construct($token)
+    public function __construct($token, $logPath = '')
     {
-        if (empty($token) or !is_string($token)) {
+         if (empty($token) or !is_string($token)) {
             throw new InvalidTokenException('Token string is required');
         }
 
@@ -46,6 +51,7 @@ class Client
         $this->schools         = new Schools($token);
         $this->meta            = new Meta($token);
         $this->attendanceCodes = new AttendanceCodes($token);
+        $this->logPath = $logPath;
     }
 
     /**
@@ -56,7 +62,10 @@ class Client
      */
     public function school($id)
     {
-        return new Schools($this->token, $id);
+        if(!empty($this->logPath)) {
+            $this->logPath .= DIRECTORY_SEPARATOR . $id;
+        }
+        return new Schools($this->token, $id, $this->logPath);
     }
 
     /**
