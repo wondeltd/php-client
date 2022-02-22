@@ -36,11 +36,17 @@ class BootstrapEndpoint
     public $token;
 
     /**
+     * @var string
+     */
+    private $logPath;
+
+    /**
      * BootstrapEndpoint constructor.
      */
-    public function __construct($token, $uri = false)
+    public function __construct($token, $uri = false, $logPath = '')
     {
         $this->token = $token;
+        $this->logPath = $logPath;
 
         if ($uri) {
             $this->uri = $uri . $this->uri;
@@ -100,7 +106,9 @@ class BootstrapEndpoint
         $response = $this->getRequest($uri)->getBody()->getContents();
         $decoded  = json_decode($response);
 
-        return new ResultIterator($decoded, $this->token);
+        $this->logResponse($this->logPath, $uri, $response);
+
+        return new ResultIterator($decoded, $this->token, $this->logPath);
     }
 
     /**
@@ -154,6 +162,8 @@ class BootstrapEndpoint
 
         $response = $this->getRequest($uri)->getBody()->getContents();
         $decoded  = json_decode($response);
+
+        $this->logResponse($this->logPath, $uri, $response);
 
         return $decoded;
     }
@@ -253,5 +263,23 @@ class BootstrapEndpoint
     public function getEndpoint()
     {
         return "https://{$this->domain}/{$this->version}/";
+    }
+
+
+    /**
+     * Log response to filesystem
+     *
+     * @param string $logPath
+     * @param string $uri
+     * @param string $response
+     */
+    protected function logResponse(string $logPath, string $uri, string $response) {
+        if(!empty($logPath)) {
+            if (!is_dir($logPath)) {
+                mkdir($logPath, 0777, true);
+            }
+            $filename = sha1($uri) . '.json';
+            file_put_contents($logPath . DIRECTORY_SEPARATOR . $filename, "URI: $uri\nRESPONSE:\n$response");
+        }
     }
 }
