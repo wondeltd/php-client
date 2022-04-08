@@ -150,7 +150,7 @@ class Schools extends BootstrapEndpoint
     /**
      * @var string
      */
-    private $logPath;
+    private $logPath = '';
 
     /**
      * Schools constructor.

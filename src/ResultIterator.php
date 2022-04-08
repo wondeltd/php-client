@@ -22,7 +22,7 @@ class ResultIterator extends BootstrapEndpoint implements \Iterator
     /**
      * @var string
      */
-    private $logPath;
+    private $logPath = '';
 
     public function __construct($givenArray, $token, $logPath = '')
     {

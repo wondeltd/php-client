@@ -36,7 +36,7 @@ class Client
     /**
      * @var string
      */
-    const version = '3.1.0';
+    const version = '3.1.1';
 
     /**
      * @var string
@@ -53,9 +53,9 @@ class Client
         }
 
         $this->token           = $token;
-        $this->schools         = new Schools($token);
-        $this->meta            = new Meta($token);
-        $this->attendanceCodes = new AttendanceCodes($token);
+        $this->schools         = new Schools($token, false, $logPath);
+        $this->meta            = new Meta($token, false, $logPath);
+        $this->attendanceCodes = new AttendanceCodes($token, false, $logPath);
         $this->logPath = $logPath;
     }
 

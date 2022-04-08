@@ -38,7 +38,7 @@ class BootstrapEndpoint
     /**
      * @var string
      */
-    private $logPath;
+    private $logPath = '';
 
     /**
      * BootstrapEndpoint constructor.

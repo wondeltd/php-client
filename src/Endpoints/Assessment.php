@@ -41,18 +41,19 @@ class Assessment extends BootstrapEndpoint
     /**
      * Assessment constructor.
      */
-    public function __construct($token, $id = false)
+    public function __construct($token, $id = false, $logPath = '')
     {
         $this->token = $token;
+        $this->logPath = $logPath;
 
         if ($id) {
             $this->uri = $this->uri . $id;
         }
 
-        $this->templates = new Templates($token, $this->uri);
-        $this->aspects = new Aspects($token, $this->uri);
-        $this->marksheets = new MarkSheets($token, $this->uri);
-        $this->results = new Results($token, $this->uri);
-        $this->resultsets = new ResultSets($token, $this->uri);
+        $this->templates = new Templates($token, $this->uri, $this->logPath);
+        $this->aspects = new Aspects($token, $this->uri, $this->logPath);
+        $this->marksheets = new MarkSheets($token, $this->uri, $this->logPath);
+        $this->results = new Results($token, $this->uri, $this->logPath);
+        $this->resultsets = new ResultSets($token, $this->uri, $this->logPath);
     }
 }
