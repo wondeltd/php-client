@@ -5,5 +5,5 @@ class BehavioursAttributes extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'behaviours/attributes/';
+    public $uri = 'behaviours/attributes';
 }

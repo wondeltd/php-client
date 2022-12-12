@@ -7,7 +7,7 @@ class Behaviours extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'behaviours/';
+    public $uri = 'behaviours';
 
     /**
      * Delete a behaviour record by it's Wonde ID

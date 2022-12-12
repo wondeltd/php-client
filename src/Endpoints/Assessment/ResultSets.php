@@ -7,5 +7,5 @@ class ResultSets extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'assessment/resultsets/';
+    public $uri = 'assessment/resultsets';
 }

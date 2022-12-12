@@ -5,5 +5,5 @@ class StudentsPreAdmission extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'students-pre-admission/';
+    public $uri = 'students-pre-admission';
 }

@@ -7,5 +7,5 @@ class Doctors extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'doctors/';
+    public $uri = 'doctors';
 }

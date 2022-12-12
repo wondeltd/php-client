@@ -5,5 +5,5 @@ class Photos extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'photos/';
+    public $uri = 'photos';
 }

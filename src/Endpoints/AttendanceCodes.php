@@ -5,5 +5,5 @@ class AttendanceCodes extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'attendance-codes/';
+    public $uri = 'attendance-codes';
 }

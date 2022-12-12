@@ -5,5 +5,5 @@ class Exclusions extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'exclusions/';
+    public $uri = 'exclusions';
 }

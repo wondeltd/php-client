@@ -7,5 +7,5 @@ class MarkSheets extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'assessment/marksheets/';
+    public $uri = 'assessment/marksheets';
 }

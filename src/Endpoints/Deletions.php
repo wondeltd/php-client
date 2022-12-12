@@ -5,5 +5,5 @@ class Deletions extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'deletions/';
+    public $uri = 'deletions';
 }

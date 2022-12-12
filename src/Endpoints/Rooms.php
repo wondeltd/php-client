@@ -5,5 +5,5 @@ class Rooms extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'rooms/';
+    public $uri = 'rooms';
 }

@@ -136,12 +136,12 @@ class Schools extends BootstrapEndpoint
      * @var Events
      */
     public $events;
-    
+
     /**
      * @var Doctors
      */
     public $doctors;
-    
+
     /**
      * @var Exclusions
      */

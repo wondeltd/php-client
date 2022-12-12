@@ -7,5 +7,5 @@ class Results extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'assessment/results/';
+    public $uri = 'assessment/results';
 }

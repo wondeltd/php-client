@@ -5,5 +5,5 @@ class Periods extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'periods/';
+    public $uri = 'periods';
 }

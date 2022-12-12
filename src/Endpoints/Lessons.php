@@ -5,5 +5,5 @@ class Lessons extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'lessons/';
+    public $uri = 'lessons';
 }

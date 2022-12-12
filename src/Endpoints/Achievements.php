@@ -7,7 +7,7 @@ class Achievements extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'achievements/';
+    public $uri = 'achievements';
 
     /**
      * Delete a achievement record by it's Wonde ID

@@ -5,5 +5,5 @@ class MedicalConditions extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'medical-conditions/';
+    public $uri = 'medical-conditions';
 }

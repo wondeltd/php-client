@@ -5,5 +5,5 @@ class Students extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'students/';
+    public $uri = 'students';
 }

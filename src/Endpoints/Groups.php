@@ -5,5 +5,5 @@ class Groups extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'groups/';
+    public $uri = 'groups';
 }

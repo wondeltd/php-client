@@ -5,5 +5,5 @@ class EmployeeAbsences extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'employee-absences/';
+    public $uri = 'employee-absences';
 }

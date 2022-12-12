@@ -7,5 +7,5 @@ class Aspects extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'assessment/aspects/';
+    public $uri = 'assessment/aspects';
 }

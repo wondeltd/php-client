@@ -5,5 +5,5 @@ class Contacts extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'contacts/';
+    public $uri = 'contacts';
 }

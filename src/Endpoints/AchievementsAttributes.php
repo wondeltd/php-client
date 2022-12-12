@@ -5,5 +5,5 @@ class AchievementsAttributes extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'achievements/attributes/';
+    public $uri = 'achievements/attributes';
 }

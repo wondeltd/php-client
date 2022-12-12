@@ -5,5 +5,5 @@ class Events extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'events/';
+    public $uri = 'events';
 }

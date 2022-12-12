@@ -9,5 +9,5 @@ class Meta extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'meta/schools/';
+    public $uri = 'meta/schools';
 }

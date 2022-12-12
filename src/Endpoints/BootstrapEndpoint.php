@@ -13,12 +13,12 @@ class BootstrapEndpoint
      * @deprecated To allow for regional domains. Use getEndpoint instead
      * @see BootstrapEndpoint::getEndpoint()
      */
-    const endpoint = 'https://api.wonde.com/v1.0/';
+    const endpoint = 'https://api.edge.wonde.com/v1.0/';
 
     /**
      * @var string
      */
-    public $domain = 'api.wonde.com';
+    public $domain = 'api.edge.wonde.com';
 
     /**
      * @var string

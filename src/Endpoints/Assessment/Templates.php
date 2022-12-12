@@ -7,5 +7,5 @@ class Templates extends BootstrapEndpoint
     /**
      * @var string
      */
-    public $uri = 'assessment/templates/';
+    public $uri = 'assessment/templates';
 }
