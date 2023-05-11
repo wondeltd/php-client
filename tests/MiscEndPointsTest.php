@@ -165,6 +165,17 @@ class MiscEndPointsTest extends TestCase
         $this->assertTrue($items > 10);
     }
 
+    public function test_medical_notes()
+    {
+        $items = [];
+        foreach ($this->school->medicalNotes->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
     public function test_periods()
     {
         $items = [];
