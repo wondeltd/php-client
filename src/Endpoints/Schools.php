@@ -122,6 +122,12 @@ class Schools extends BootstrapEndpoint
      */
     public $studentsPreAdmission;
 
+
+    /**
+     * @var StudentLeavers
+     */
+    public $studentLeavers;
+
     /**
      * @var Assessment
      */
@@ -193,6 +199,7 @@ class Schools extends BootstrapEndpoint
         $this->rooms                  = new Rooms($token, $this->uri, $this->logPath);
         $this->students               = new Students($token, $this->uri, $this->logPath);
         $this->studentsPreAdmission   = new StudentsPreAdmission($token, $this->uri, $this->logPath);
+        $this->studentLeavers         = new StudentLeavers($token, $this->uri, $this->logPath);
         $this->subjects               = new Subjects($token, $this->uri, $this->logPath);
     }
 
@@ -225,6 +232,7 @@ class Schools extends BootstrapEndpoint
         $this->rooms->domain = $domain;
         $this->students->domain = $domain;
         $this->studentsPreAdmission->domain = $domain;
+        $this->studentLeavers->domain = $domain;
         $this->subjects->domain = $domain;
     }
 
