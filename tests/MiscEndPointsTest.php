@@ -55,6 +55,17 @@ class MiscEndPointsTest extends TestCase
         $this->assertTrue($items > 10);
     }
 
+    public function tests_student_leavers()
+    {
+        $items = [];
+        foreach ($this->school->studentLeavers->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
     public function tests_attendance_summaries()
     {
         $items = [];
