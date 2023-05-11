@@ -93,6 +93,11 @@ class Schools extends BootstrapEndpoint
     public $medicalEvents;
 
     /**
+     * @var MedicalNotes
+     */
+    public $medicalNotes;
+
+    /**
      * @var Periods
      */
     public $periods;
@@ -188,6 +193,7 @@ class Schools extends BootstrapEndpoint
         $this->lessonAttendance       = new LessonAttendance($token, $this->uri, $this->logPath);
         $this->medicalConditions      = new MedicalConditions($token, $this->uri, $this->logPath);
         $this->medicalEvents          = new MedicalEvents($token, $this->uri, $this->logPath);
+        $this->medicalNotes           = new MedicalNotes($token, $this->uri, $this->logPath);
         $this->periods                = new Periods($token, $this->uri, $this->logPath);
         $this->photos                 = new Photos($token, $this->uri, $this->logPath);
         $this->rooms                  = new Rooms($token, $this->uri, $this->logPath);
@@ -220,6 +226,7 @@ class Schools extends BootstrapEndpoint
         $this->lessonAttendance->domain = $domain;
         $this->medicalConditions->domain = $domain;
         $this->medicalEvents->domain = $domain;
+        $this->medicalNotes->domain = $domain;
         $this->periods->domain = $domain;
         $this->photos->domain = $domain;
         $this->rooms->domain = $domain;
