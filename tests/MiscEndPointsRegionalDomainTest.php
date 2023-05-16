@@ -58,6 +58,39 @@ class MiscEndPointsRegionalDomainTest extends TestCase
         $this->assertTrue($items > 10);
     }
 
+    public function tests_students_pre_admission()
+    {
+        $items = [];
+        foreach ($this->school->studentsPreAdmission->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
+    public function tests_attendance_codes()
+    {
+        $items = [];
+        foreach ($this->school->attendanceCodes->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
+    public function tests_student_leavers()
+    {
+        $items = [];
+        foreach ($this->school->studentLeavers->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
     public function tests_attendance_summaries()
     {
         $items = [];
@@ -84,6 +117,39 @@ class MiscEndPointsRegionalDomainTest extends TestCase
     {
         $items = [];
         foreach ($this->school->contacts->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
+    public function test_doctors()
+    {
+        $items = [];
+        foreach ($this->school->doctors->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
+    public function test_counts()
+    {
+        $items = [];
+        foreach ($this->school->counts->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
+    public function test_employee_absences()
+    {
+        $items = [];
+        foreach ($this->school->employeeAbsences->all() as $row) {
             $items[] = $row;
             $this->assertTrue($row instanceof stdClass);
             $this->assertNotEmpty($row);
@@ -168,10 +234,32 @@ class MiscEndPointsRegionalDomainTest extends TestCase
         $this->assertTrue($items > 10);
     }
 
+    public function test_medical_notes()
+    {
+        $items = [];
+        foreach ($this->school->medicalNotes->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
     public function test_periods()
     {
         $items = [];
         foreach ($this->school->periods->all() as $row) {
+            $items[] = $row;
+            $this->assertTrue($row instanceof stdClass);
+            $this->assertNotEmpty($row);
+        }
+        $this->assertTrue($items > 10);
+    }
+
+    public function test_photos()
+    {
+        $items = [];
+        foreach ($this->school->photos->all() as $row) {
             $items[] = $row;
             $this->assertTrue($row instanceof stdClass);
             $this->assertNotEmpty($row);
