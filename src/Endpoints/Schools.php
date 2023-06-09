@@ -136,12 +136,12 @@ class Schools extends BootstrapEndpoint
      * @var Events
      */
     public $events;
-    
+
     /**
      * @var Doctors
      */
     public $doctors;
-    
+
     /**
      * @var Exclusions
      */
@@ -226,6 +226,8 @@ class Schools extends BootstrapEndpoint
         $this->students->domain = $domain;
         $this->studentsPreAdmission->domain = $domain;
         $this->subjects->domain = $domain;
+
+        return $this;
     }
 
     /**
