@@ -257,6 +257,32 @@ class Schools extends BootstrapEndpoint
     }
 
     /**
+     * Return all declined schools
+     *
+     * @param array $includes
+     * @param array $parameters
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function declined($includes = [], $parameters = [])
+    {
+        $this->uri = $this->uri . 'declined/';
+        return $this->all($includes, $parameters);
+    }
+
+    /**
+     * Return all revoked schools
+     *
+     * @param array $includes
+     * @param array $parameters
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function revoked($includes = [], $parameters = [])
+    {
+        $this->uri = $this->uri . 'revoked/';
+        return $this->all($includes, $parameters);
+    }
+
+    /**
      * Search available schools
      *
      * @param array $includes
