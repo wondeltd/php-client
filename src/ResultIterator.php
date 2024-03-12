@@ -32,26 +32,31 @@ class ResultIterator extends BootstrapEndpoint implements \Iterator
         $this->logPath = $logPath;
     }
 
+    #[\ReturnTypeWillChange]
     function rewind()
     {
         return reset($this->array);
     }
 
+    #[\ReturnTypeWillChange]
     function current()
     {
         return current($this->array);
     }
 
+    #[\ReturnTypeWillChange]
     function key()
     {
         return key($this->array);
     }
 
+    #[\ReturnTypeWillChange]
     function next()
     {
         return next($this->array);
     }
 
+    #[\ReturnTypeWillChange]
     function valid()
     {
         $valid = key($this->array) !== null;
