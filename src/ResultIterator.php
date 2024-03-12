@@ -19,11 +19,6 @@ class ResultIterator extends BootstrapEndpoint implements \Iterator
      */
     private $meta;
 
-    /**
-     * @var string
-     */
-    private $logPath = '';
-
     public function __construct($givenArray, $token, $logPath = '')
     {
         $this->array = $givenArray->data;
