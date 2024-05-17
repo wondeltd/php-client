@@ -159,14 +159,9 @@ class Schools extends BootstrapEndpoint
     public $exclusions;
 
     /**
-     * @var string
-     */
-    private $logPath = '';
-
-    /**
      * Schools constructor.
      *
-     * @param string $uri
+     *
      */
     public function __construct($token, $id = false, $logPath = '')
     {
