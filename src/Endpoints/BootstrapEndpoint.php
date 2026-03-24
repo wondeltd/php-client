@@ -63,7 +63,8 @@ class BootstrapEndpoint
         return new Client([
             'headers' => [
                 'Authorization' => 'Basic ' . base64_encode($this->token . ':'),
-                'User-Agent'    => 'wonde-php-client-' . \Wonde\Client::version
+                'User-Agent'    => 'wonde-php-client-' . \Wonde\Client::version,
+                'Connection' => 'close'
             ]
         ]);
     }

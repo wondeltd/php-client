@@ -2,10 +2,16 @@
 
 class Schools extends BootstrapEndpoint
 {
+    private const ENDPOINT_URL = 'schools/';
     /**
      * @var string
      */
-    public $uri = 'schools/';
+    public $uri = self::ENDPOINT_URL;
+
+    /**
+     * @var string
+     */
+    public $id = null;
 
     /**
      * @var Achievements
@@ -169,7 +175,8 @@ class Schools extends BootstrapEndpoint
         $this->logPath = $logPath;
 
         if ($id) {
-            $this->uri = $this->uri . $id . '/';
+            $this->id = $id;
+            $this->uri = $this->constructUri();
         }
 
         $this->achievements           = new Achievements($token, $this->uri, $this->logPath);
@@ -202,6 +209,15 @@ class Schools extends BootstrapEndpoint
         $this->studentsPreAdmission   = new StudentsPreAdmission($token, $this->uri, $this->logPath);
         $this->studentLeavers         = new StudentLeavers($token, $this->uri, $this->logPath);
         $this->subjects               = new Subjects($token, $this->uri, $this->logPath);
+    }
+
+    public function constructUri($endpoint = '')
+    {
+        if (isset($this->id)) {
+            return self::ENDPOINT_URL . $this->id . '/' . $endpoint;
+        }
+
+        return self::ENDPOINT_URL . $endpoint;
     }
 
     public function updateDomain($domain)
@@ -249,7 +265,7 @@ class Schools extends BootstrapEndpoint
      */
     public function pending($includes = [], $parameters = [])
     {
-        $this->uri = $this->uri . 'pending/';
+        $this->uri = $this->constructUri('pending/');
         return $this->all($includes, $parameters);
     }
 
@@ -262,7 +278,7 @@ class Schools extends BootstrapEndpoint
      */
     public function audited($includes = [], $parameters = [])
     {
-        $this->uri = $this->uri . 'audited/';
+        $this->uri = $this->constructUri('audited/');
         return $this->all($includes, $parameters);
     }
 
@@ -275,7 +291,7 @@ class Schools extends BootstrapEndpoint
      */
     public function declined($includes = [], $parameters = [])
     {
-        $this->uri = $this->uri . 'declined/';
+        $this->uri = $this->constructUri('declined/');
         return $this->all($includes, $parameters);
     }
 
@@ -288,7 +304,7 @@ class Schools extends BootstrapEndpoint
      */
     public function revoked($includes = [], $parameters = [])
     {
-        $this->uri = $this->uri . 'revoked/';
+        $this->uri = $this->constructUri('revoked/');
         return $this->all($includes, $parameters);
     }
     
@@ -301,7 +317,7 @@ class Schools extends BootstrapEndpoint
      */
     public function search($includes = [], $parameters = [])
     {
-        $this->uri = $this->uri . 'all/';
+        $this->uri = $this->constructUri('all/');
         return $this->all($includes, $parameters);
     }
 
@@ -315,7 +331,7 @@ class Schools extends BootstrapEndpoint
      */
     public function get($id, $includes = [], $parameters = [])
     {
-        $this->uri = 'schools/';
+        $this->uri = self::ENDPOINT_URL;
         return parent::get($id, $includes, $parameters);
     }
 
