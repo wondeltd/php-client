@@ -1,6 +1,6 @@
 # Wonde PHP Client
 
-Documentation https://wonde.com/docs/api/1.0/
+Documentation https://docs.wonde.com/docs/api/sync/
 
 ## Installation
 
