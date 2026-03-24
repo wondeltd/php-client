@@ -20,6 +20,11 @@ class LessonAttendanceRecord
     private $attendance_code_id;
 
     /**
+     * @var string
+     */
+    private $comment;    
+
+    /**
      * Set student id
      *
      * @param string $date
@@ -114,7 +119,33 @@ class LessonAttendanceRecord
             'attendance_code_id' => $this->getAttendanceCodeId()
         ];
 
+        $comment = $this->getComment();
+
+        if ( ! empty($comment)) {
+            $required['comment'] = $comment;
+        }        
+
         return $required;
     }
+
+    /**
+     * Get the comment value
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Set the comment value
+     *
+     * @param string $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }    
 
 }

@@ -543,6 +543,7 @@ $attendance = new \Wonde\Writeback\LessonAttendanceRecord();
 $attendance->setStudentId('STUDENT_ID_GOES_HERE');
 $attendance->setLessonId('LESSON_ID_GOES_HERE');
 $attendance->setAttendanceCodeId('ATTENDANCE_CODE_ID_GOES_HERE');
+$attendance->setComment('Comment here.');
 
 // Add attendance mark to register
 $register->add($attendance);
